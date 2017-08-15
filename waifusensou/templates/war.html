@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Two Waifus enter, One Waifu leaves">
+    <meta name="author" content="Charles Click">
+
+    <title>Waifu Sensou</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <link href="{{ url_for('static', filename='cover.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="site-wrapper">
+
+        <div class="site-wrapper-inner">
+
+            <div class="cover-container">
+        
+                <div class="row">
+                    <div class="col">
+                        {% for waifu in waifus %}
+                            <div class="card text-white bg-secondary mb-3">
+                                <h4 class="card-header">
+                                    {{ waifu['name'] }}
+                                    <a id="w1cibtn" class="btn btn-dark float-left disabled" data-toggle="collapse" href="#w1cimage">Image</a>
+                                    {% if waifu['video'] %}
+                                        <a id="w1cvbtn" class="btn btn-success float-right" data-toggle="collapse" href="#w1cvideo">Video</a>
+                                    {% else %}
+                                        <a id="w1cvbtn" class="btn btn-dark float-right disabled" href="#">Video</a>
+                                    {% endif %}
+                                </h4>
+                                <div class="card-body">
+                                    <div class="collapse show" id="w1cimage">
+                                        <img src="{{ waifu['image'] }}" class="img-fluid">
+                                    </div>
+                                    {% if waifu['video'] %}
+                                        <div class="collapse" id="w1cvideo">
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe class="embed-responsive-item" src="{{ waifu['video'] }}" autoplay="0" autostart="0"></iframe>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    <br/>
+                                    <a href="#" class="btn btn-light" onclick="makeVote({{ wid }}, {{ waifu['uuid'] }})">Vote for {{ waifu['name'] }}</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="mastfoot">
+                    <div class="inner">
+                        <p>Made using <a href="https://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    <!--
+       
+    $('#w1cimage').on('show.bs.collapse', function(){
+    
+        $('#w1cvideo').collapse('hide');
+        document.getElementById("w1cibtn").className = "btn btn-dark float-left disabled";
+        document.getElementById("w1cvbtn").className = "btn btn-success float-right";
+        
+        
+    })
+        
+    $('#w1cvideo').on('show.bs.collapse', function(){
+        
+        $('#w1cimage').collapse('hide');
+        document.getElementById("w1cibtn").className = "btn btn-success float-left";
+        document.getElementById("w1cvbtn").className = "btn btn-dark float-right disabled";
+        
+    })
+        
+    function makeVote(war_id, waifu_uuid){
+        
+        // call the api and vote, then show it voted.
+        
+    }
+        
+    -->
+    </script>
+</body>
+</html>
