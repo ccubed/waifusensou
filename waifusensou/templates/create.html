@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
-    <link href="{{ url_for('static', filename='cover.css') }}" rel="stylesheet">
+    <link href="../static/cover.css" rel="stylesheet">
 </head>
 
 <body>
@@ -20,7 +20,39 @@
 
             <div class="cover-container">
                 
-                WAIFU BATTLE GET
+                <div class="row">
+                    <div class="card text-white bg-secondary mb-3">
+                        <h4 class="card-header">Details for Waifu One</h4>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label" for="w1name">Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="w1name" placeholder="Enter Waifu Name">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label" for="w1img">Image</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="w1img" placeholder="Enter an Image URL"> 
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label" for="w1vid">Video</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="w1vid" placeholder="Enter an Embed URL"> 
+                                        <small id="vidMuted" class="form-text text-white">You can right click on any youtube video and copy video URL to get this.</small>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-dark">Verify</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="mastfoot">
                     <div class="inner">
